@@ -16,6 +16,7 @@ ng new ngmaterial
 ```
 npm i @angular/material @angular/cdk @angular/animations @angular/flex-layout
 npm i hammerjs
+npm install --save-dev @compodoc/compodoc
 ```
 
 ## (3) Configurando App
@@ -49,6 +50,13 @@ index.xhml
 ```
 
 ```
+main.js
+
+import 'hammerjs';
+
+```
+
+```
 style.css
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
@@ -66,10 +74,133 @@ angular.json
     ],
 ```
 
+## (4) Criando componentes
 
+```
+ERP
+ng g c erp/fatura --spec false
+ng g c erp/cliente --spec false
+ng g c erp/produto --spec false
 
-## (4) Estrutura da app
+PAGES
+ng g c pages/base --spec false
+ng g c pages/erro --spec false
+ng g c pages/home --spec false
+ng g c pages/login --spec false
+ng g c pages/sidenav --spec false
+ng g c pages/sobre --spec false
 
+SHARED
+ng g m shared/material --spec false --flat
+
+INFRA
+ng g c infra/adminGuard --spec false --flat
+ng g c infra/authGuard --spec false --flat
+ng g c infra/guestGuard --spec false --flat
+ng g c infra/jwtInterceptor --spec false --flat
+ng g c infra/messageService --spec false --flat
+ng g c infra/resourceService --spec false --flat
+ng g c infra/userService --spec false --flat
+
+ROTAS
+ng g m appRotas --spec false --flat
+
+```
+
+## (5) Estrutura da app
+
+```
+src
+├───app
+│   │   app-rotas.module.ts
+│   │   app.module.ts
+│   │   material.module.ts
+│   │
+│   ├───erp
+│   │   ├───cliente
+│   │   │       cliente.component.css
+│   │   │       cliente.component.html
+│   │   │       cliente.component.spec.ts
+│   │   │       cliente.component.ts
+│   │   │
+│   │   ├───fatura
+│   │   │       fatura.component.css
+│   │   │       fatura.component.html
+│   │   │       fatura.component.spec.ts
+│   │   │       fatura.component.ts
+│   │   │
+│   │   └───produto
+│   │           produto.component.css
+│   │           produto.component.html
+│   │           produto.component.spec.ts
+│   │           produto.component.ts
+│   │
+│   ├───infra
+│   │       admin.guard.ts
+│   │       auth.guard.ts
+│   │       authentication.service.ts
+│   │       config.service.ts
+│   │       guest.guard.ts
+│   │       index.ts
+│   │       jwt.interceptor.ts
+│   │       message.service.ts
+│   │       resource.service.ts
+│   │       user.service.ts
+│   │
+│   ├───pages
+│   │   ├───base
+│   │   │       base.component.html
+│   │   │       base.component.ts
+│   │   │
+│   │   ├───erro
+│   │   │       erro.component.css
+│   │   │       erro.component.html
+│   │   │       erro.component.ts
+│   │   │
+│   │   ├───home
+│   │   │       home.component.css
+│   │   │       home.component.html
+│   │   │       home.component.ts
+│   │   │
+│   │   ├───login
+│   │   │       login.component.html
+│   │   │       login.component.scss
+│   │   │       login.component.ts
+│   │   │
+│   │   ├───sidenav
+│   │   │       sidenav.component.css
+│   │   │       sidenav.component.html
+│   │   │       sidenav.component.ts
+│   │   │       sidenav.service.ts
+│   │   │
+│   │   └───sobre
+│   │           sobre.component.css
+│   │           sobre.component.html
+│   │           sobre.component.ts
+│   │
+│   └───shared
+├───assets
+│   │   .gitkeep
+│   │
+│   ├───icon
+│   │       auth.svg
+│   │       facebook.svg
+│   │       firebase.svg
+│   │       github-logo.svg
+│   │       github-plus.png
+│   │       google-plus.svg
+│   │
+│   ├───images
+│   │       face-7.jpg
+│   │       logo.svg
+│   │
+│   └───svg-loaders
+│           puff.svg
+│
+└───environments
+        environment.prod.ts
+
+```
 
 ## Angular
 
