@@ -20,8 +20,53 @@ npm i hammerjs
 
 ## (3) Configurando App
 
+```html
+index.xhml
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+  <style>
+      body{
+        background-color: #3f51b5;
+      }
+      .loader {
+          position: absolute;
+          height: 80px;
+          width: 80px;
+          left: calc(50% - 40px);
+          top: calc(50% - 40px);
+      }
+  </style>
+
+  <body>
+    <app-base>
+        <img src="assets/svg-loaders/puff.svg" class="loader">
+      </app-base>
+  </body>
+
 ```
+
 ```
+style.css
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body{
+  margin: 0;
+}
+```
+
+```
+angular.json
+
+    "styles": [
+      "src/styles.css"
+    ],
+```
+
+
 
 ## (4) Estrutura da app
 
