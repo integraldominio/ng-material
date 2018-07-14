@@ -68,11 +68,11 @@ body{
 ```
 
 ```
-angular.json
+package.json
 
-    "styles": [
-      "src/styles.css"
-    ],
+"scripts": {
+  "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json"
+}
 ```
 
 ## (4) Criando componentes
@@ -205,6 +205,18 @@ ng g m appRotas --spec false --flat
         environment.prod.ts
         environment.ts
 ```
+
+## (6) Gerar Documentação
+
+O comando abaixo gera documentação da app na pasta documentatioin.
+
+```
+npm run compodoc
+```
+
+<p align="center">
+<img src="docs/doc01.png" width="800" alt="">
+</p>
 
 ## Angular
 
