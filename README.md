@@ -15,6 +15,7 @@ ng new ngmaterial
 
 ```
 npm i @angular/material @angular/cdk @angular/animations @angular/flex-layout
+npm i @ngx-formly/material @ngx-formly/core
 npm i hammerjs
 npm install --save-dev @compodoc/compodoc
 ```
@@ -110,11 +111,9 @@ ng g m appRotas --spec false --flat
 ## (5) Estrutura da app
 
 ```
-src
 ├───app
 │   │   app-rotas.module.ts
 │   │   app.module.ts
-│   │   material.module.ts
 │   │
 │   ├───erp
 │   │   ├───cliente
@@ -122,18 +121,21 @@ src
 │   │   │       cliente.component.html
 │   │   │       cliente.component.spec.ts
 │   │   │       cliente.component.ts
+│   │   │       cliente.service.ts
 │   │   │
 │   │   ├───fatura
 │   │   │       fatura.component.css
 │   │   │       fatura.component.html
 │   │   │       fatura.component.spec.ts
 │   │   │       fatura.component.ts
+│   │   │       fatura.service.ts
 │   │   │
 │   │   └───produto
 │   │           produto.component.css
 │   │           produto.component.html
 │   │           produto.component.spec.ts
 │   │           produto.component.ts
+│   │           produto.service.ts
 │   │
 │   ├───infra
 │   │       admin.guard.ts
@@ -179,6 +181,8 @@ src
 │   │           sobre.component.ts
 │   │
 │   └───shared
+│           material.module.ts
+│
 ├───assets
 │   │   .gitkeep
 │   │
@@ -199,7 +203,7 @@ src
 │
 └───environments
         environment.prod.ts
-
+        environment.ts
 ```
 
 ## Angular

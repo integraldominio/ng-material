@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './shared/material.module';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+import {FormlyModule} from '@ngx-formly/core';
+import {FormlyMaterialModule} from '@ngx-formly/material';
 
 import {
     AuthGuard,
@@ -49,6 +50,8 @@ import { SidenavService } from './pages/sidenav/sidenav.service';
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
+    FormlyModule.forRoot(),
+    FormlyMaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRotasModule,

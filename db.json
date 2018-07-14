@@ -1,0 +1,27 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "clientes":[
+    {"id":1,"nome":"Lyndon","endereco":"rua Osvaldo Goch, 1190","email":"email01@gmail.com","situcao":"Ativo","limiteSaldo":100000},
+    {"id":2,"nome":"Marianne","endereco":"rua Osvaldo Goch, 1190","email":"email02@gmail.com","situcao":"Ativo","limiteSaldo":200000}
+  ],
+  "produtos":[
+  ],
+  "faturas":[
+  ]
+}
