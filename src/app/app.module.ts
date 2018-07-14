@@ -31,6 +31,7 @@ import { ErroComponent } from './pages/erro/erro.component';
 import { BaseComponent } from './pages/base/base.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SidenavService } from './pages/sidenav/sidenav.service';
+import { BreadcrumbComponent } from './pages/comps/breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SidenavService } from './pages/sidenav/sidenav.service';
     ClienteComponent,
     ProdutoComponent,
     FaturaComponent,
-    HomeComponent
+    HomeComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,10 @@
-<h3  >Clientes</h3>
+<div fxLayout="row wrap" class="form-group">
+  <div fxFlex.gt-sm="50" class="divide">
+    <mat-card>
+      <mat-card-title>Clientes</mat-card-title>
+      <mat-card-content>
 
-<div class="container mat-elevation-z2">
+
 
 <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
 
@@ -73,10 +77,23 @@
                  [pageSizeOptions]="[5, 10, 25, 100]">
   </mat-paginator>
 
+
+
+
+</mat-card-content>
+</mat-card>
+</div>
 </div>
 
-<h2>Adicionar</h2>
-<div class="container mat-elevation-z2">
+
+
+<div fxLayout="row wrap" class="form-group">
+  <div fxFlex.gt-sm="50" class="divide">
+    <mat-card>
+      <mat-card-title>Adicionar</mat-card-title>
+      <mat-card-content>
+
+
 <form [formGroup]="form" >
   <formly-form
     [form]="form"
@@ -87,4 +104,9 @@
     <button mat-button (click)="options.resetModel()">Limpar</button>
   </formly-form>
 </form>
+
+
+</mat-card-content>
+</mat-card>
+</div>
 </div>
