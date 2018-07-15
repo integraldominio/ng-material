@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MessageService, ConfigService, ResourceService } from '../../infra';
+import { MessageService, ConfigService, ResourceService } from '../../infra/security';
 
 @Injectable({
   providedIn: 'root'

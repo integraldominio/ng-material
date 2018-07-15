@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService, Cliente } from './cliente.service';
-import { MessageService } from '../../infra';
+import { MessageService } from '../../infra/security';
 import { FormGroup} from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 

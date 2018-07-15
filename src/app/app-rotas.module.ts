@@ -7,7 +7,7 @@ import { ErroComponent } from './pages/erro/erro.component';
 import { ClienteComponent } from './erp/cliente/cliente.component';
 import { ProdutoComponent } from './erp/produto/produto.component';
 import { FaturaComponent } from './erp/fatura/fatura.component';
-import { AuthGuard } from './infra';
+import { AuthGuard } from './infra/security';
 import { BaseComponent } from './pages/base/base.component';
 import { HomeComponent } from './pages/home/home.component';
 

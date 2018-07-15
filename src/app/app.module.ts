@@ -17,10 +17,11 @@ import {
     ConfigService,
     JwtInterceptor,
     MessageService,
-    UserService } from './infra';
+    UserService } from './infra/security';
 
-    import { AppRotasModule } from './app-rotas.module';
+import { CpfPipe, PreencheZeroPipe } from './infra/pipes';
 
+import { AppRotasModule } from './app-rotas.module';
 import { ClienteComponent } from './erp/cliente/cliente.component';
 import { ProdutoComponent } from './erp/produto/produto.component';
 import { FaturaComponent } from './erp/fatura/fatura.component';
@@ -44,7 +45,9 @@ import { BreadcrumbComponent } from './pages/comps/breadcrumb/breadcrumb.compone
     ProdutoComponent,
     FaturaComponent,
     HomeComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    CpfPipe,
+    PreencheZeroPipe
   ],
   imports: [
     BrowserModule,

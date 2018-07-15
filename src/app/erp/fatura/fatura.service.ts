@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MessageService, ConfigService, ResourceService } from '../../infra';
+import { MessageService, ConfigService, ResourceService } from '../../infra/security';
 import { Produto } from '../produto/produto.service';
 import { Cliente } from '../cliente/cliente.service';
 

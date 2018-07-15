@@ -1,3 +1,27 @@
-<p>
-  fatura works!
-</p>
+<div fxLayout="row wrap" class="form-group">
+    <div fxFlex.gt-sm="50" class="divide">
+      <mat-card>
+        <mat-card-title>Fatura</mat-card-title>
+        <mat-card-content>
+
+         <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input type="text" placeholder="Selecione Cliente" aria-label="Number"
+          matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of clientes" [value]="option.nome">
+              {{option.id | fillZeroMask }} - {{option.nome}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+
+<!-- <ng-container *ngFor="let cli of clientes">
+  {{cli.nome}}
+</ng-container>
+ -->
+
+</mat-card-content>
+</mat-card>
+</div>
+</div>
