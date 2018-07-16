@@ -95,13 +95,13 @@ SHARED
 ng g m shared/material --spec false --flat
 
 INFRA
-ng g c infra/adminGuard --spec false --flat
-ng g c infra/authGuard --spec false --flat
-ng g c infra/guestGuard --spec false --flat
-ng g c infra/jwtInterceptor --spec false --flat
-ng g c infra/messageService --spec false --flat
-ng g c infra/resourceService --spec false --flat
-ng g c infra/userService --spec false --flat
+ng g c infra/security/adminGuard --spec false --flat
+ng g c infra/security/authGuard --spec false --flat
+ng g c infra/security/guestGuard --spec false --flat
+ng g c infra/security/jwtInterceptor --spec false --flat
+ng g c infra/security/messageService --spec false --flat
+ng g c infra/security/resourceService --spec false --flat
+ng g c infra/security/userService --spec false --flat
 
 ROTAS
 ng g m appRotas --spec false --flat
@@ -110,7 +110,6 @@ ng g m appRotas --spec false --flat
 
 ## (5) Estrutura da app
 
-```
 ├───app
 │   │   app-rotas.module.ts
 │   │   app.module.ts
@@ -138,21 +137,33 @@ ng g m appRotas --spec false --flat
 │   │           produto.service.ts
 │   │
 │   ├───infra
-│   │       admin.guard.ts
-│   │       auth.guard.ts
-│   │       authentication.service.ts
-│   │       config.service.ts
-│   │       guest.guard.ts
-│   │       index.ts
-│   │       jwt.interceptor.ts
-│   │       message.service.ts
-│   │       resource.service.ts
-│   │       user.service.ts
+│   │   ├───pipes
+│   │   │       cpf.Pipe.ts
+│   │   │       customCurrency.Pipe.ts
+│   │   │       index.ts
+│   │   │       preencheZero.Pipe.ts
+│   │   │
+│   │   └───security
+│   │           admin.guard.ts
+│   │           auth.guard.ts
+│   │           authentication.service.ts
+│   │           config.service.ts
+│   │           guest.guard.ts
+│   │           index.ts
+│   │           jwt.interceptor.ts
+│   │           message.service.ts
+│   │           resource.service.ts
+│   │           user.service.ts
 │   │
 │   ├───pages
 │   │   ├───base
 │   │   │       base.component.html
 │   │   │       base.component.ts
+│   │   │
+│   │   ├───comps
+│   │   │   └───breadcrumb
+│   │   │           breadcrumb.component.css
+│   │   │           breadcrumb.component.ts
 │   │   │
 │   │   ├───erro
 │   │   │       erro.component.css
