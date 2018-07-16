@@ -16,6 +16,9 @@ export class FaturaComponent implements OnInit {
   filteredOptions: Observable<string[]>;
   clientes: Array<Cliente>;
 
+  people$: Observable<Cliente[]>;
+  selectedPersonId: number;
+
   constructor( private clienteService: ClienteService) {}
 
   ngOnInit() {
@@ -26,6 +29,8 @@ export class FaturaComponent implements OnInit {
         map(value => this._filter(value))
       );
      this.listarClientes3();
+
+     this.people$ = this.clienteService.listAll();
   }
 
   listarClientes() {

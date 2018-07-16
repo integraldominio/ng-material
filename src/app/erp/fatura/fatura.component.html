@@ -16,7 +16,15 @@
           </mat-autocomplete>
         </mat-form-field>
  -->
-        <app-real-api></app-real-api>
+
+<!--         <app-real-api></app-real-api> -->
+
+        <ng-select [items]="people$ | async"
+            bindLabel="nome"
+            bindValue="id"
+            [(ngModel)]="selectedPersonId">
+        </ng-select>
+
 
       </form>
 

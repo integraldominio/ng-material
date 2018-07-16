@@ -230,6 +230,37 @@ npm run compodoc
 <img src="docs/doc01.png" width="800" alt="">
 </p>
 
+
+## Json-server
+Json-server é servidor rest fake. Zero configuração.
+
+```
+npm install -g json-server
+json-server --watch ./db.json
+```
+
+### Adicone as coleções em db.json
+
+```javascript
+  ...
+  "clientes":[
+    {"id":1,"nome":"cliente 001","endereco":"rua X","email":"email01@gmail.com","situcao":"Ativo","limiteSaldo":100000},
+    {"id":2,"nome":"cliente 002","endereco":"rua Y","email":"email02@gmail.com","situcao":"Ativo","limiteSaldo":200000}
+  ],
+  "produtos":[
+    {"id":1, "nome":"IPhone X", "preco":2000},
+    {"id":1, "nome":"Galaxy 9", "preco":1000}
+  ],
+  "faturas":[
+  ]
+  ...
+```
+
+## Componentes
+
+### Autocomplete
+https://ng-select.github.io/ng-select#/data-sources
+
 ## Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
