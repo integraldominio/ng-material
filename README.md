@@ -231,7 +231,7 @@ ng g m appRotas --spec false --flat
 ```
 
 ## (6) Crud Resource Service
-A classe abaixo, realiza as operaões de CRUD na API:
+A classe abaixo, realiza as operações de CRUD na API:
 
 ```javascript
 resource.service.ts
