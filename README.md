@@ -110,6 +110,7 @@ ng g m appRotas --spec false --flat
 
 ## (5) Estrutura da app
 
+```
 ├───app
 │   │   app-rotas.module.ts
 │   │   app.module.ts
