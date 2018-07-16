@@ -6,7 +6,17 @@
 
         <form class="example-form">
 
-<!--           <mat-form-field class="example-full-width">
+
+          <ng-select [items]="people$ | async"
+          bindLabel="nome"
+          bindValue="id"
+          placeholder="Cliente"
+          [(ngModel)]="selectedPersonId">
+          </ng-select>
+
+
+
+          <mat-form-field class="example-full-width">
           <input type="text" placeholder="Selecione Cliente" aria-label="Number"
           matInput [formControl]="myControl" [matAutocomplete]="auto">
           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
@@ -15,15 +25,11 @@
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
- -->
 
-<!--         <app-real-api></app-real-api> -->
 
-        <ng-select [items]="people$ | async"
-            bindLabel="nome"
-            bindValue="id"
-            [(ngModel)]="selectedPersonId">
-        </ng-select>
+        <app-real-api></app-real-api>
+
+
 
 
       </form>

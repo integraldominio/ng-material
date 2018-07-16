@@ -129,6 +129,8 @@ ng g m appRotas --spec false --flat
 │   │   │       fatura.component.spec.ts
 │   │   │       fatura.component.ts
 │   │   │       fatura.service.ts
+│   │   │       real-api.component.html
+│   │   │       real-api.component.ts
 │   │   │
 │   │   └───produto
 │   │           produto.component.css
@@ -138,6 +140,16 @@ ng g m appRotas --spec false --flat
 │   │           produto.service.ts
 │   │
 │   ├───infra
+│   │   ├───components
+│   │   │   └───search-select
+│   │   │           base.ts
+│   │   │           index.ts
+│   │   │           search-select.component.css
+│   │   │           search-select.component.html
+│   │   │           search-select.component.ts
+│   │   │           search-select.module.ts
+│   │   │           types.ts
+│   │   │
 │   │   ├───pipes
 │   │   │       cpf.Pipe.ts
 │   │   │       customCurrency.Pipe.ts
