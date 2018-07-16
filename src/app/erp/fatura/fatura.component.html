@@ -4,8 +4,9 @@
         <mat-card-title>Fatura</mat-card-title>
         <mat-card-content>
 
-         <form class="example-form">
-        <mat-form-field class="example-full-width">
+        <form class="example-form">
+
+<!--           <mat-form-field class="example-full-width">
           <input type="text" placeholder="Selecione Cliente" aria-label="Number"
           matInput [formControl]="myControl" [matAutocomplete]="auto">
           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
@@ -14,12 +15,10 @@
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
-      </form>
-
-<!-- <ng-container *ngFor="let cli of clientes">
-  {{cli.nome}}
-</ng-container>
  -->
+        <app-real-api></app-real-api>
+
+      </form>
 
 </mat-card-content>
 </mat-card>

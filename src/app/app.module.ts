@@ -9,17 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormlyModule} from '@ngx-formly/core';
 import {FormlyMaterialModule} from '@ngx-formly/material';
 
-import {
-    AuthGuard,
-    GuestGuard,
-    AdminGuard,
-    AuthenticationService,
-    ConfigService,
-    JwtInterceptor,
-    MessageService,
-    UserService } from './infra/security';
+import { AuthGuard, GuestGuard, AdminGuard, AuthenticationService,
+          ConfigService, JwtInterceptor, MessageService, UserService } from './infra/security';
 
 import { CpfPipe, PreencheZeroPipe } from './infra/pipes';
+
+import { SearchSelectModule } from './infra/components/search-select';
+import { RealApiComponent } from './erp/fatura/real-api.component';
 
 import { AppRotasModule } from './app-rotas.module';
 import { ClienteComponent } from './erp/cliente/cliente.component';
@@ -47,8 +43,9 @@ import { BreadcrumbComponent } from './pages/comps/breadcrumb/breadcrumb.compone
     HomeComponent,
     BreadcrumbComponent,
     CpfPipe,
-    PreencheZeroPipe
-  ],
+    PreencheZeroPipe,
+    RealApiComponent,
+    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -60,6 +57,7 @@ import { BreadcrumbComponent } from './pages/comps/breadcrumb/breadcrumb.compone
     ReactiveFormsModule,
     HttpClientModule,
     AppRotasModule,
+    SearchSelectModule
   ],
   providers: [
     AuthGuard,
