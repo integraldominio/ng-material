@@ -230,7 +230,165 @@ ng g m appRotas --spec false --flat
         environment.ts
 ```
 
-## (6) Gerar Documentação
+## (6) Crud Resource Service
+A classe abaixo, realiza as operaões de CRUD na API:
+
+```javascript
+resource.service.ts
+
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { MessageService } from './message.service';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
+export class Resource {
+  id: number;
+  parentId?: number;
+}
+
+export interface Serializer {
+  fromJson(json: any): Resource;
+  toJson(resource: Resource): any;
+}
+
+export class ResourceService<T extends Resource> {
+
+  constructor(
+      private http: HttpClient,
+      private url: string,
+      private endpoint: string,
+      private messageService: MessageService ) {
+          console.log('ResourceService');
+      }
+
+    public create(item: T): Observable<T> {
+        return this.http.post<T>(`${this.url}/${this.endpoint}`, item, httpOptions)
+        .pipe(
+          tap( (i: T) => this.log(`added id=${i.id}`)),
+          catchError(this.handleError<T>('Erro criando...'))
+        );
+    }
+
+    public read(id: number): Observable<T> {
+      return this.http.get<T>(`${this.url}/${this.endpoint}/${id}`).pipe(
+        tap( _ => this.log(`Carrefando id=${id}`)),
+        catchError(this.handleError<any>(`${this.endpoint} id=${id}`))
+      );
+    }
+
+    public update(item: T): Observable<T> {
+        return this.http.put(`${this.url}/${this.endpoint}/${item.id}`, item, httpOptions)
+        .pipe(
+          tap(_ => this.log(`updated id=${item.id}`)),
+          catchError(this.handleError<any>('Erro atualizando...'))
+        );
+    }
+
+    public search(queryOptions: QueryOptions): Observable<T[]> {
+        return this.http.get<T[]>(`${this.url}/${this.endpoint}?${queryOptions.toQueryString()}`)
+        .pipe(
+          tap(_ => this.log(`Encontrados...`)),
+          catchError(this.handleError<T[]>('Erro Busando...', []))
+        );
+    }
+
+    public searchParams(params: string): Observable<T[]> {
+      return this.http.get<T[]>(`${this.url}/${this.endpoint}?${params}`)
+      .pipe(
+        tap( _ => (console.log(''))) /*tap(_ => this.log(`Encontrados...`))*/ ,
+        catchError(this.handleError<T[]>('Erro Busando...', []))
+      );
+  }
+
+    public listAll() {
+      return this.http.get<T[]>(`${this.url}/${this.endpoint}`)
+      .pipe(
+        tap( _ => (console.log(''))) /* tap( _ => this.log(`List All...`)) */,
+        catchError(this.handleError<T[]>('Erro Busando...', []))
+      );
+  }
+
+    public delete(id: number) {
+      if ( id as number > 0 ) {
+      return this.http.delete<T>(`${this.url}/${this.endpoint}/${id}`, httpOptions)
+      .pipe(
+        tap(_ => this.log(`Deletado id=${id}`)),
+        catchError(this.handleError<T>('Erro Deletando...'))
+      );
+      }
+      this.log('Informe ID válido');
+    }
+
+    private log(message: string, acao?: string) {
+      this.messageService.info( message, acao );
+    }
+
+    private handleError<S> (operation = 'operation', result?: S) {
+      return (error: any): Observable<S> => {
+        // TODO: send the error to remote logging infrastructure
+        console.log('>>> Erro capturado...');
+        console.error(error); // log to console instead
+        // TODO: better job of transforming error for user consumption
+        let msg: string;
+        if ( error.status === 404) {
+          msg = ' Não encontrado!';
+        }
+        this.log(`${operation.toUpperCase()}`, `${msg}`);
+        // Let the app keep running by returning an empty result.
+        return of(result as S);
+      };
+    }
+
+  }
+
+```
+
+Abaixo exemplo de utilização:
+
+```javascript
+cliente.service.ts
+
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { MessageService, ConfigService, ResourceService } from '../../infra/security';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ClienteService extends ResourceService<Cliente> {
+
+  constructor(
+    httpClient: HttpClient,
+    messageService: MessageService,
+    configService: ConfigService
+  ) {super( httpClient, configService.getApiUrl(), 'clientes', messageService ); }
+}
+
+export class Cliente {
+  id: number;
+  nome: string;
+  endereco: string;
+  cidade: string;
+  telefone: string;
+  email: string;
+  situacao: Situacao;
+  limiteSaldo: number;
+}
+
+export enum Situacao {
+  Ativo,
+  Inativo
+}
+
+```
+
+
+## (7) Gerar Documentação
 
 O comando abaixo gera documentação da app na pasta documentatioin.
 
